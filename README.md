@@ -15,10 +15,35 @@ CakePHP+MySQLのVagrantfileです。インストールされるソフトウェ�
 * Gitをインストール済である事
 * VirtualBoxおよびVagrantをインストール済である事
 
-使い方
+はじめに
 ----
 
-はじめにこのGitリポジトリをCloneします。
+リポジトリの内容は下記のようになっています。
+
+```
+vagrant-cakephp-mysql/
+　├ README.md
+　└ vagrant/
+　   ├ Vagrantfile
+　 　├ script.sh
+　 　├ httpd.conf
+　 　└ etc
+```
+
+vagrant upすると、ゲストOSの/shareにホストOSのvagrant-cakephp-mysqlフォルダがマウントされます。Apacheで/share以下の任意のフォルダを公開する設定になっているので、vagrant-cakephp-mysql配下にアプリケーションのソースを配置して開発する事ができます。ホストOS（Mac・Windows）からお好みのテキストエディタとGitクライアントで開発を行ってください。
+
+Apacheの設定はhttpd.confの下記の設定を修正する事で変更できます。
+
+```
+<VirtualHost *:80>
+    DocumentRoot /share/CiD_Beta
+</VirtualHost>
+```
+
+手順
+----
+
+はじめにこのGitリポジトリをcloneします。
 
 ```
 $ git clone https://github.com/relationslab/vagrant-cakephp-mysql
@@ -39,7 +64,7 @@ $ vagrant up
 $ vagrant ssh
 ```
 
-次にCakePHPのアプリケーションのGitリポジトリを/share/配下にCloneしてください。
+次にCakePHPのアプリケーションのGitリポジトリを/share/配下にcloneしてください。
 
 ホストOSからは下記のURLでブラウザからアプリケーションの動作を確認することができます。phpMyAdminもインストール済になっています。
 
