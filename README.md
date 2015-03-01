@@ -77,7 +77,7 @@ http://192.168.33.40/phpMyAdmin/
 
 ```
 $ pwd
-/share/CiD_Beta
+/share/<アプリケーションのGitリポジトリ>
 $ sh ~/.aws/AWS-ElasticBeanstalk-CLI-2.5.1/AWSDevTools/Linux/AWSDevTools-RepositorySetup.sh 
 ```
 
