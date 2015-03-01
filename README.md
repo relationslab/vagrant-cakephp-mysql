@@ -49,7 +49,7 @@ Apacheの設定はhttpd.confの下記の設定を修正する事で変更でき�
 $ git clone https://github.com/relationslab/vagrant-cakephp-mysql
 ```
 
-次にMySQLの設定を行います。/vagrant/scriptsに作成するユーザーとDBの情報を指定します。もしMySQL生成時にDDLを流したい場合はddl.sqlにDDLを記述してください。
+次にMySQLの設定を行います。/vagrant/script.shに作成するユーザーとDBの情報を指定します。もしMySQL生成時にDDLを流したい場合はddl.sqlにDDLを記述してください。
 
 準備が整ったらvagantフォルダに移動しvagrant upしてください。すると環境が生成されます。
 
