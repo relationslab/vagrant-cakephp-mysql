@@ -20,7 +20,7 @@ CakePHPの実行に最適化したLAMP環境のVagrantfileです。インスト�
 はじめにこのGitリポジトリをCloneします。
 
 ```
-$ git clone https://github.com/relationslab/vagrant_lamp_sample
+$ git clone https://github.com/relationslab/vagrant-lamp-cakephp
 ```
 
 次にMySQLの設定を行います。/vagrant/scriptsに作成するユーザーとDBの情報を指定します。もしMySQL生成時にDDLを流したい場合はddl.sqlにDDLを記述してください。
