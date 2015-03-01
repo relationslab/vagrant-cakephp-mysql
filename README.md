@@ -1,7 +1,7 @@
 概要
 ----
 
-CakePHPの実行に最適化したLAMP環境のVagrantfileです。インストールされるソフトウェアは主に下記になります。詳しくは/vagrant/Vagrantfileを参照して下さい。
+CakePHP+MySQLのVagrantfileです。インストールされるソフトウェアは主に下記になります。詳しくは/vagrant/Vagrantfileと/vagrant/script.shを参照して下さい。
 
 * CentOS
 * Apache
@@ -12,6 +12,7 @@ CakePHPの実行に最適化したLAMP環境のVagrantfileです。インスト�
 前提
 ----
 
+* Gitをインストール済である事
 * VirtualBoxおよびVagrantをインストール済である事
 
 使い方
@@ -20,12 +21,12 @@ CakePHPの実行に最適化したLAMP環境のVagrantfileです。インスト�
 はじめにこのGitリポジトリをCloneします。
 
 ```
-$ git clone https://github.com/relationslab/vagrant-lamp-cakephp
+$ git clone https://github.com/relationslab/vagrant-cakephp-mysql
 ```
 
 次にMySQLの設定を行います。/vagrant/scriptsに作成するユーザーとDBの情報を指定します。もしMySQL生成時にDDLを流したい場合はddl.sqlにDDLを記述してください。
 
-準備が整ったらvagantフォルダに移動しvagrant upしてください。するとLAMP環境が生成されます。
+準備が整ったらvagantフォルダに移動しvagrant upしてください。すると環境が生成されます。
 
 ```
 $ cd vagrant
@@ -40,7 +41,7 @@ $ vagrant ssh
 
 次にCakePHPのアプリケーションのGitリポジトリを/share/配下にCloneしてください。
 
-これで下記のURLをホストOSのブラウザで確認するとアプリケーションの画面が確認できると思います。phpMyAdminもインストール済になっています。
+ホストOSからは下記のURLでブラウザからアプリケーションの動作を確認することができます。phpMyAdminもインストール済になっています。
 
 ```
 http://192.168.33.40/
@@ -55,10 +56,21 @@ $ pwd
 $ sh ~/.aws/AWS-ElasticBeanstalk-CLI-2.5.1/AWSDevTools/Linux/AWSDevTools-RepositorySetup.sh 
 ```
 
-下記のコマンドで、AWSの資格情報と環境情報を設定します。
+下記のコマンドで、AWS Elastic Beanstalkの資格情報と環境情報を設定します。
 
 ```
 $ git aws.config
 ```
 
+aws.configで設定を行ったら、下記のコマンドでAWS Elastic Beanstalkの環境にアプリケーションをデプロイする事ができます。
+
+```
+$ git aws.push [--environment <environment_name>]
+```
+
+Vagrantの環境を停止する場合はホストOSの環境で/vagrantフォルダに移動し下記のコマンドを実行します。
+
+```
+$ vagrant halt
+```
 
